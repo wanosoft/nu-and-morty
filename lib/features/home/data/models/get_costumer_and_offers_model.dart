@@ -50,15 +50,19 @@ class OfferModel extends Equatable {
 @JsonSerializable()
 class ProductModel extends Equatable {
   final String id;
+  
   final String name;
+  
   final String description;
-  final String image;
+  
+  @JsonKey(name: 'image')
+  final String imageUrl;
 
   const ProductModel({
     required this.id,
     required this.name,
     required this.description,
-    required this.image,
+    required this.imageUrl,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
@@ -67,5 +71,5 @@ class ProductModel extends Equatable {
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 
   @override
-  List<Object> get props => [id, name, description, image];
+  List<Object> get props => [id, name, description, imageUrl];
 }
