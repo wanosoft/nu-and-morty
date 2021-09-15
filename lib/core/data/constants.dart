@@ -4,23 +4,26 @@ const _token =
 const uri = 'https://staging-nu-needful-things.nubank.com.br/query';
 const headers = {'Authorization': _token};
 
-// Queries.
-const getCostumerAndOffersQuery = '''
-query get_costumer_and_offers {
-  viewer{
-    id
-    name
-    balance
-    offers {
+class GraphQLQueries {
+  GraphQLQueries._();
+
+  static const getCostumerAndOffersQuery = '''
+  query get_costumer_and_offers {
+    viewer{
       id
-      price
-      product {
+      name
+      balance
+      offers {
         id
-        name
-        description
-        image
+        price
+        product {
+          id
+          name
+          description
+          image
+        }
       }
     }
   }
+  ''';
 }
-''';
