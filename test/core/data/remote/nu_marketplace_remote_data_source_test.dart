@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mockito/annotations.dart';
@@ -7,6 +6,7 @@ import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.
 
 import '../../../test_util/json_factory.dart';
 import '../../../test_util/model_factory.dart';
+import '../../../test_util/test_common.dart';
 import 'nu_marketplace_remote_data_source_test.mocks.dart';
 
 @GenerateMocks([GraphQLClient])
@@ -16,30 +16,41 @@ void main() {
 
   setUp(() {
     client = MockGraphQLClient();
-    marketplaceRemoteDataSource = NuMarketplaceRemoteDataSoucerImpl(client);
+    marketplaceRemoteDataSource = NuMarketplaceRemoteDataSourceImpl(client);
   });
 
   void stubQuery(Map<String, dynamic> data) =>
       when(client.query(any)).thenAnswer(
-        (_) => SynchronousFuture(QueryResult(
+        (_) async => QueryResult(
           data: data,
           source: QueryResultSource.network,
-        )),
+        ),
       );
 
   group('nu marketplace remote data source', () {
-    test('should success with expected model', () async {
-      stubQuery({
-        'viewer': getCostumerAndOffersJson,
+    group('get costumer and offers', () {
+      void verifyCall() {
+        verify(client.query(any));
+        verifyNoMoreInteractions(client);
+      }
+
+      test('should success with expected model', () async {
+        stubQuery({
+          'viewer': getCostumerAndOffersJson,
+        });
+        final expectedModel = createGetCostumerAndOffersModel();
+
+        final result =
+            await marketplaceRemoteDataSource.getCostumerAndOffersModel();
+
+        expect(result, expectedModel);
       });
-      final expectedModel = createGetCostumerAndOffersModel();
 
-      final result =
-          await marketplaceRemoteDataSource.getCostumerAndOffersModel();
-
-      expect(result, expectedModel);
-      verify(client.query(any));
-      verifyNoMoreInteractions(client);
+      testDataSourceServerException(
+        stub: () => client.query(any),
+        call: () => marketplaceRemoteDataSource.getCostumerAndOffersModel(),
+        verify: () => verifyCall(),
+      );
     });
   });
 }

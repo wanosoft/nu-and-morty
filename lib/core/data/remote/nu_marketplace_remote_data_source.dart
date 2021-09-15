@@ -8,9 +8,9 @@ abstract class NuMarketplaceRemoteDataSource {
 }
 
 @LazySingleton(as: NuMarketplaceRemoteDataSource)
-class NuMarketplaceRemoteDataSoucerImpl
+class NuMarketplaceRemoteDataSourceImpl
     implements NuMarketplaceRemoteDataSource {
-  const NuMarketplaceRemoteDataSoucerImpl(this._client);
+  const NuMarketplaceRemoteDataSourceImpl(this._client);
 
   final GraphQLClient _client;
 
