@@ -52,7 +52,7 @@ void testRepositoryUnknownFailure({
   Function? verify,
 }) =>
     test(testName, () async {
-      when(stub()).thenThrow(const ServerException());
+      when(stub()).thenThrow(Exception());
 
       final result = await call();
 
@@ -61,7 +61,7 @@ void testRepositoryUnknownFailure({
         isA<FailureResult>().having(
           (result) => result.failure,
           'failure',
-          isA<ServerFailure>(),
+          isA<UnknownFailure>(),
         ),
       );
 

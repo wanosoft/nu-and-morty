@@ -42,6 +42,7 @@ void main() {
             await marketplaceRemoteDataSource.getCostumerAndOffersModel();
 
         expect(result, expectedModel);
+        verifyCall();
       });
 
       testDataSourceServerException(
