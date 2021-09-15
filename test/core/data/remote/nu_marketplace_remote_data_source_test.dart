@@ -1,15 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart';
 
 import '../../../test_util/json_factory.dart';
 import '../../../test_util/model_factory.dart';
 import '../../../test_util/test_common.dart';
-import 'nu_marketplace_remote_data_source_test.mocks.dart';
+import '../../../test_util/mock_factory.mocks.dart';
 
-@GenerateMocks([GraphQLClient])
 void main() {
   late MockGraphQLClient client;
   late NuMarketplaceRemoteDataSource marketplaceRemoteDataSource;

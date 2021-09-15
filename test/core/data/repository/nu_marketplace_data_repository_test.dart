@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart';
 import 'package:nu_and_morty/core/data/repository/nu_marketplace_data_repository.dart';
 import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
@@ -9,9 +7,8 @@ import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offe
 
 import '../../../test_util/entity_factory.dart';
 import '../../../test_util/model_factory.dart';
-import 'nu_marketplace_data_repository_test.mocks.dart';
+import '../../../test_util/mock_factory.mocks.dart';
 
-@GenerateMocks([NuMarketplaceRemoteDataSource])
 void main() {
   late MockNuMarketplaceRemoteDataSource remoteDataSource;
   late NuMarketplaceRepository repository;

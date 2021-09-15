@@ -21,7 +21,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final registerModule = _$RegisterModule();
   gh.lazySingleton<_i3.GraphQLClient>(() => registerModule.gqlClient);
   gh.lazySingleton<_i4.NuMarketplaceRemoteDataSource>(
-      () => _i4.NuMarketplaceRemoteDataSoucerImpl(get<_i3.GraphQLClient>()));
+      () => _i4.NuMarketplaceRemoteDataSourceImpl(get<_i3.GraphQLClient>()));
   gh.lazySingleton<_i5.NuMarketplaceRepository>(() =>
       _i6.NuMarketplaceDataRepository(
           get<_i4.NuMarketplaceRemoteDataSource>()));
