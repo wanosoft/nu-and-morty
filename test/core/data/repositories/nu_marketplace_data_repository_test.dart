@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:nu_and_morty/core/data/repository/nu_marketplace_data_repository.dart';
-import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart';
+import 'package:nu_and_morty/core/data/repositories/nu_marketplace_data_repository.dart';
+import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
-import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart';
+import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
 
 import '../../../test_util/entity_factory.dart';
 import '../../../test_util/model_factory.dart';
@@ -20,25 +20,25 @@ void main() {
   });
 
   group('nu marketplace data repository', () {
-    group('get costumer and offers', () {
+    group('get costumer offers', () {
       void verifyCall() {
-        verify(remoteDataSource.getCostumerAndOffersModel());
+        verify(remoteDataSource.getCostumerOffers());
         verifyNoMoreInteractions(remoteDataSource);
       }
 
-      test('should return succesfully costumer and offers entity', () async {
-        final model = createGetCostumerAndOffersModel();
-        final expectedEntity = createGetCostumerAndOffersEntity();
+      test('should return succesfully costumer offers entity', () async {
+        final model = createCostumerOffersModel();
+        final expectedEntity = createCostumerOffersEntity();
 
-        when(remoteDataSource.getCostumerAndOffersModel()).thenAnswer(
+        when(remoteDataSource.getCostumerOffers()).thenAnswer(
           (_) async => model,
         );
 
-        final result = await repository.getCostumerAndOffers();
+        final result = await repository.getCostumerOffers();
 
         expect(
           result,
-          isA<SuccessResult<GetCostumerAndOffersEntity>>().having(
+          isA<SuccessResult<CostumerOffersEntity>>().having(
             (result) => result.value,
             'value',
             equals(expectedEntity),
@@ -48,8 +48,8 @@ void main() {
       });
 
       group('should fail', () {
-        void stub() => remoteDataSource.getCostumerAndOffersModel();
-        void call() => repository.getCostumerAndOffers();
+        void stub() => remoteDataSource.getCostumerOffers();
+        void call() => repository.getCostumerOffers();
 
         testRepositoryServerFailure(
           stub: stub,

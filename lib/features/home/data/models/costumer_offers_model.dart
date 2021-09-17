@@ -1,26 +1,26 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'get_costumer_and_offers_model.g.dart';
+part 'costumer_offers_model.g.dart';
 
 @JsonSerializable()
-class GetCostumerAndOffersModel extends Equatable {
+class CostumerOffersModel extends Equatable {
   final String id;
   final String name;
   final int balance;
   final List<OfferModel> offers;
 
-  const GetCostumerAndOffersModel({
+  const CostumerOffersModel({
     required this.id,
     required this.name,
     required this.balance,
     required this.offers,
   });
 
-  factory GetCostumerAndOffersModel.fromJson(Map<String, dynamic> json) =>
-      _$GetCostumerAndOffersModelFromJson(json);
+  factory CostumerOffersModel.fromJson(Map<String, dynamic> json) =>
+      _$CostumerOffersModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GetCostumerAndOffersModelToJson(this);
+  Map<String, dynamic> toJson() => _$CostumerOffersModelToJson(this);
 
   @override
   List<Object> get props => [id, name, balance, offers];
@@ -50,11 +50,11 @@ class OfferModel extends Equatable {
 @JsonSerializable()
 class ProductModel extends Equatable {
   final String id;
-  
+
   final String name;
-  
+
   final String description;
-  
+
   @JsonKey(name: 'image')
   final String imageUrl;
 

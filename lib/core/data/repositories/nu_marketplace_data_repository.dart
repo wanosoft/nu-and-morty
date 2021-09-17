@@ -2,8 +2,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart';
 import 'package:nu_and_morty/core/domain/failure.dart';
-import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart';
-import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart';
+import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart';
+import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
 import 'package:nu_and_morty/features/home/domain/mapper.dart';
 
@@ -14,10 +14,10 @@ class NuMarketplaceDataRepository implements NuMarketplaceRepository {
   final NuMarketplaceRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Result<GetCostumerAndOffersEntity>> getCostumerAndOffers() async {
+  Future<Result<CostumerOffersEntity>> getCostumerOffers() async {
     try {
-      final model = await _remoteDataSource.getCostumerAndOffersModel();
-      final entity = getCostumerAndOffersEntityMapper(model);
+      final model = await _remoteDataSource.getCostumerOffers();
+      final entity = costumerOffersEntityMapper(model);
       return Result.success(entity);
     } on ServerException {
       return Result.failure(ServerFailure());

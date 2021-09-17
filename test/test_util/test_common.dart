@@ -69,3 +69,57 @@ void testRepositoryUnknownFailure({
         verify();
       }
     });
+
+void testServerFailure<T>({
+  String testName = 'should return unknown failure',
+  required Function stub,
+  required Function call,
+  Function? verify,
+}) =>
+    test(testName, () async {
+      when(stub()).thenAnswer(
+        (_) async => Result<T>.failure(ServerFailure()),
+      );
+
+      final result = await call();
+
+      expect(
+        result,
+        isA<FailureResult>().having(
+          (result) => result.failure,
+          'failure',
+          isA<ServerFailure>(),
+        ),
+      );
+
+      if (verify != null) {
+        verify();
+      }
+    });
+
+void testUnknownFailure<T>({
+  String testName = 'should return unknown failure',
+  required Function stub,
+  required Function call,
+  Function? verify,
+}) =>
+    test(testName, () async {
+      when(stub()).thenAnswer(
+        (_) async => Result<T>.failure(UnknownFailure()),
+      );
+
+      final result = await call();
+
+      expect(
+        result,
+        isA<FailureResult>().having(
+          (result) => result.failure,
+          'failure',
+          isA<UnknownFailure>(),
+        ),
+      );
+
+      if (verify != null) {
+        verify();
+      }
+    });
