@@ -10,12 +10,12 @@ class NuContaMarketplace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NuConta Marketplace',
-      theme: NuContaMarketplaceTheme.themeData,
-      home: BlocProvider<HomeCubit>(
-        create: (_) => getIt()..getCostumerAndOffers(),
-        child: const HomePage(),
+    return BlocProvider<HomeCubit>(
+      create: (_) => getIt()..getCostumerAndOffers(),
+      child: MaterialApp(
+        title: 'NuConta Marketplace',
+        theme: NuContaMarketplaceTheme.themeData,
+        home: const HomePage(),
       ),
     );
   }

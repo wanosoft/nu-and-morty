@@ -5,13 +5,14 @@ import 'package:nu_and_morty/core/domain/failure.dart';
 import 'package:nu_and_morty/core/domain/use_case.dart';
 import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart';
 import 'package:nu_and_morty/features/home/presentation/mapper.dart';
-import 'package:nu_and_morty/features/home/presentation/model/costumer_offers.dart';
+import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.dart';
 
 part 'home_state.dart';
 
-@injectable
+@lazySingleton
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._useCase) : super(HomeInitial());
+
   final GetCostumerOffersUseCase _useCase;
 
   Future<void> getCostumerAndOffers() async {
@@ -25,4 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeError(failure));
     }
   }
+
+  void updateData(CostumerOffers updatedData) =>
+      emit(HomeDataLoaded(updatedData));
 }

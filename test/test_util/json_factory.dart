@@ -15,3 +15,9 @@ const costumerOffersJson = {
     },
   ],
 };
+
+const purchaseOfferJson = {
+  'costumer': costumerOffersJson,
+  'errorMessage': null,
+  'success': true,
+};

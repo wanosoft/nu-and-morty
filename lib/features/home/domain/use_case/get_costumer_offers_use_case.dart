@@ -12,6 +12,6 @@ class GetCostumerOffersUseCase
   final NuMarketplaceRepository _repository;
 
   @override
-  Future<Result<CostumerOffersEntity>> call(NoParams _) =>
-      _repository.getCostumerOffers();
+  Future<Result<CostumerOffersEntity>> call(NoParams _) async =>
+      await _repository.getCostumerOffers();
 }

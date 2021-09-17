@@ -1,4 +1,5 @@
-import 'package:nu_and_morty/features/home/presentation/model/costumer_offers.dart';
+import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.dart';
+import 'package:nu_and_morty/features/purchase/presentation/models/purchase_offer.dart';
 
 const _id = 'id';
 const _monyValue = 1;
@@ -39,4 +40,15 @@ CostumerOffers createCostumerOffers({
       name: name,
       balance: balance,
       offers: offers ?? [createOffer()],
+    );
+
+PurchaseOffer createPurchaseOffer({
+  CostumerOffers? costumerOffers,
+  String? errorMessage,
+  bool success = true,
+}) =>
+    PurchaseOffer(
+      costumerOffers: costumerOffers ?? createCostumerOffers(),
+      errorMessage: errorMessage,
+      success: success,
     );
