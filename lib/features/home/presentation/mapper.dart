@@ -1,10 +1,10 @@
-import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart';
-import 'package:nu_and_morty/features/home/presentation/model/get_costumer_and_offers.dart';
+import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
+import 'package:nu_and_morty/features/home/presentation/model/costumer_offers.dart';
 
-GetCostumerAndOffers getCostumerAndOffersMapper(
-  GetCostumerAndOffersEntity entity,
+CostumerOffers costumerOffersMapper(
+  CostumerOffersEntity entity,
 ) =>
-    GetCostumerAndOffers(
+    CostumerOffers(
       id: entity.id,
       name: entity.name,
       balance: entity.balance,

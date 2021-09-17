@@ -8,7 +8,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:graphql_flutter/graphql_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/home/domain/use_case/get_costumer_and_offers_use_case.dart'
+import '../../features/home/domain/use_case/get_costumer_offers_use_case.dart'
     as _i7;
 import '../../features/home/presentation/cubit/home_cubit.dart' as _i8;
 import '../data/remote/nu_marketplace_remote_data_source.dart' as _i4;
@@ -28,10 +28,10 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i5.NuMarketplaceRepository>(() =>
       _i6.NuMarketplaceDataRepository(
           get<_i4.NuMarketplaceRemoteDataSource>()));
-  gh.lazySingleton<_i7.GetCostumerAndOffersUseCase>(() =>
-      _i7.GetCostumerAndOffersUseCase(get<_i5.NuMarketplaceRepository>()));
+  gh.lazySingleton<_i7.GetCostumerOffersUseCase>(
+      () => _i7.GetCostumerOffersUseCase(get<_i5.NuMarketplaceRepository>()));
   gh.factory<_i8.HomeCubit>(
-      () => _i8.HomeCubit(get<_i7.GetCostumerAndOffersUseCase>()));
+      () => _i8.HomeCubit(get<_i7.GetCostumerOffersUseCase>()));
   return get;
 }
 

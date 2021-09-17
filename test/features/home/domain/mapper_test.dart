@@ -6,11 +6,11 @@ import '../../../test_util/model_factory.dart';
 
 void main() {
   group('mapper', () {
-    test('should map get costumer and offers model to entity', () {
-      final model = createGetCostumerAndOffersModel();
-      final expectedEntity = createGetCostumerAndOffersEntity();
+    test('should map costumer offers model to entity', () {
+      final model = createCostumerOffersModel();
+      final expectedEntity = createCostumerOffersEntity();
 
-      final result = getCostumerAndOffersEntityMapper(model);
+      final result = costumerOffersEntityMapper(model);
 
       expect(result, expectedEntity);
     });

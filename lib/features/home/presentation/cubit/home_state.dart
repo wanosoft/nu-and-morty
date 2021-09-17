@@ -11,12 +11,12 @@ abstract class HomeState extends Equatable {
 class HomeLoading extends HomeState {}
 
 class HomeDataLoaded extends HomeState {
-  const HomeDataLoaded(this.getCostumerAndOffers);
+  const HomeDataLoaded(this.costumerOffers);
 
-  final GetCostumerAndOffers getCostumerAndOffers;
+  final CostumerOffers costumerOffers;
 
   @override
-  List<Object> get props => [getCostumerAndOffers];
+  List<Object> get props => [costumerOffers];
 }
 
 class HomeError extends HomeState {

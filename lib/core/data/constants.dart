@@ -7,8 +7,8 @@ const headers = {'Authorization': _token};
 class GraphQLQueries {
   GraphQLQueries._();
 
-  static const getCostumerAndOffersQuery = '''
-  query get_costumer_and_offers {
+  static const getCostumerOffersQuery = '''
+  query get_costumer_offers {
     viewer{
       id
       name

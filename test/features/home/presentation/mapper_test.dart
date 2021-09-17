@@ -7,10 +7,10 @@ import '../../../test_util/presentation_model_factory.dart';
 void main() {
   group('mapper', () {
     test('should map get costumer and offers entity to presentation model', () {
-      final entity = createGetCostumerAndOffersEntity();
-      final expectedModel = createGetCostumerAndOffers();
+      final entity = createCostumerOffersEntity();
+      final expectedModel = createCostumerOffers();
 
-      final result = getCostumerAndOffersMapper(entity);
+      final result = costumerOffersMapper(entity);
 
       expect(result, expectedModel);
     });

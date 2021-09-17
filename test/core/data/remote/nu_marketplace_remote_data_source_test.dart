@@ -26,7 +26,7 @@ void main() {
       );
 
   group('nu marketplace remote data source', () {
-    group('get costumer and offers', () {
+    group('get costumer offers', () {
       void verifyCall() {
         verify(client.query(any));
         verifyNoMoreInteractions(client);
@@ -34,12 +34,12 @@ void main() {
 
       test('should success with expected model', () async {
         stubQuery({
-          'viewer': getCostumerAndOffersJson,
+          'viewer': costumerOffersJson,
         });
-        final expectedModel = createGetCostumerAndOffersModel();
+        final expectedModel = createCostumerOffersModel();
 
         final result =
-            await marketplaceRemoteDataSource.getCostumerAndOffersModel();
+            await marketplaceRemoteDataSource.getCostumerOffers();
 
         expect(result, expectedModel);
         verifyCall();
@@ -47,7 +47,7 @@ void main() {
 
       testDataSourceServerException(
         stub: () => client.query(any),
-        call: () => marketplaceRemoteDataSource.getCostumerAndOffersModel(),
+        call: () => marketplaceRemoteDataSource.getCostumerOffers(),
         verify: () => verifyCall(),
       );
     });

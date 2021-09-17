@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_costumer_and_offers_model.dart';
+part of 'costumer_offers_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetCostumerAndOffersModel _$GetCostumerAndOffersModelFromJson(
-        Map<String, dynamic> json) =>
-    GetCostumerAndOffersModel(
+CostumerOffersModel _$CostumerOffersModelFromJson(Map<String, dynamic> json) =>
+    CostumerOffersModel(
       id: json['id'] as String,
       name: json['name'] as String,
       balance: json['balance'] as int,
@@ -17,8 +16,8 @@ GetCostumerAndOffersModel _$GetCostumerAndOffersModelFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$GetCostumerAndOffersModelToJson(
-        GetCostumerAndOffersModel instance) =>
+Map<String, dynamic> _$CostumerOffersModelToJson(
+        CostumerOffersModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
