@@ -26,4 +26,28 @@ class GraphQLQueries {
     }
   }
   ''';
+
+  static const purchaseOrder = '''
+  mutation purchase {
+    purchase(offerId: \$ID!) {
+      customer {
+        id
+        name
+        balance
+        offers {
+          id
+          price
+          product {
+            id
+            name
+            description
+            image
+          }
+        }
+      }
+      errorMessage
+      success
+    }
+  }
+  ''';
 }
