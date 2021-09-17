@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:nu_and_morty/core/presentation/internationalization.dart';
-import 'package:nu_and_morty/features/home/presentation/model/costumer_offers.dart';
+import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.dart';
 
 class OfferDetailView extends StatelessWidget {
   const OfferDetailView({required this.offer, Key? key}) : super(key: key);

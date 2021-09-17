@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nu_and_morty/features/home/presentation/model/costumer_offers.dart';
+import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.dart';
 import 'package:nu_and_morty/features/home/presentation/pages/offer_detail_view.dart';
 
 class OfferTile extends StatelessWidget {
