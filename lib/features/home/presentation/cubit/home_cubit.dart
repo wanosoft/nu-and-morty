@@ -9,9 +9,10 @@ import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.d
 
 part 'home_state.dart';
 
-@injectable
+@lazySingleton
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._useCase) : super(HomeInitial());
+  
   final GetCostumerOffersUseCase _useCase;
 
   Future<void> getCostumerAndOffers() async {

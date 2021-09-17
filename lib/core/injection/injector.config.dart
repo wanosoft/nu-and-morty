@@ -13,10 +13,11 @@ import '../../features/home/domain/use_case/get_costumer_offers_use_case.dart'
 import '../../features/home/presentation/cubit/home_cubit.dart' as _i9;
 import '../../features/purchase/domain/use_case/purchase_offer_use_case.dart'
     as _i7;
+import '../../features/purchase/presentation/cubit/purchase_cubit.dart' as _i10;
 import '../data/remote/nu_marketplace_remote_data_source.dart' as _i4;
 import '../data/repositories/nu_marketplace_data_repository.dart' as _i6;
 import '../domain/repositories/nu_marketplace_repository.dart' as _i5;
-import 'register_module.dart' as _i10; // ignore_for_file: unnecessary_lambdas
+import 'register_module.dart' as _i11; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -34,9 +35,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i7.PurchaseOfferUseCase(get<_i5.NuMarketplaceRepository>()));
   gh.lazySingleton<_i8.GetCostumerOffersUseCase>(
       () => _i8.GetCostumerOffersUseCase(get<_i5.NuMarketplaceRepository>()));
-  gh.factory<_i9.HomeCubit>(
+  gh.lazySingleton<_i9.HomeCubit>(
       () => _i9.HomeCubit(get<_i8.GetCostumerOffersUseCase>()));
+  gh.lazySingleton<_i10.PurchaseCubit>(
+      () => _i10.PurchaseCubit(get<_i7.PurchaseOfferUseCase>()));
   return get;
 }
 
-class _$RegisterModule extends _i10.RegisterModule {}
+class _$RegisterModule extends _i11.RegisterModule {}

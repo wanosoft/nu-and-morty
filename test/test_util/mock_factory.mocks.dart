@@ -24,6 +24,8 @@ import 'package:nu_and_morty/features/purchase/data/models/purchase_offer_model.
     as _i5;
 import 'package:nu_and_morty/features/purchase/domain/entities/purchase_offer_entity.dart'
     as _i12;
+import 'package:nu_and_morty/features/purchase/domain/use_case/purchase_offer_use_case.dart'
+    as _i15;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -222,6 +224,25 @@ class MockGetCostumerOffersUseCase extends _i1.Mock
               returnValue: Future<_i6.Result<_i11.CostumerOffersEntity>>.value(
                   _FakeResult_8<_i11.CostumerOffersEntity>()))
           as _i8.Future<_i6.Result<_i11.CostumerOffersEntity>>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [PurchaseOfferUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockPurchaseOfferUseCase extends _i1.Mock
+    implements _i15.PurchaseOfferUseCase {
+  MockPurchaseOfferUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Future<_i6.Result<_i12.PurchaseOfferEntity>> call(String? id) =>
+      (super.noSuchMethod(Invocation.method(#call, [id]),
+              returnValue: Future<_i6.Result<_i12.PurchaseOfferEntity>>.value(
+                  _FakeResult_8<_i12.PurchaseOfferEntity>()))
+          as _i8.Future<_i6.Result<_i12.PurchaseOfferEntity>>);
   @override
   String toString() => super.toString();
 }
