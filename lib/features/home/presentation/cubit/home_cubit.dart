@@ -12,7 +12,7 @@ part 'home_state.dart';
 @lazySingleton
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._useCase) : super(HomeInitial());
-  
+
   final GetCostumerOffersUseCase _useCase;
 
   Future<void> getCostumerAndOffers() async {
@@ -26,4 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeError(failure));
     }
   }
+
+  void updateData(CostumerOffers updatedData) =>
+      emit(HomeDataLoaded(updatedData));
 }

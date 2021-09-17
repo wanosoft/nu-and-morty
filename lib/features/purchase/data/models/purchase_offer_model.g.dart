@@ -9,14 +9,14 @@ part of 'purchase_offer_model.dart';
 PurchaseOfferModel _$PurchaseOfferModelFromJson(Map<String, dynamic> json) =>
     PurchaseOfferModel(
       costumerOffers: CostumerOffersModel.fromJson(
-          json['costumer'] as Map<String, dynamic>),
+          json['customer'] as Map<String, dynamic>),
       errorMessage: json['errorMessage'] as String?,
       success: json['success'] as bool,
     );
 
 Map<String, dynamic> _$PurchaseOfferModelToJson(PurchaseOfferModel instance) =>
     <String, dynamic>{
-      'costumer': instance.costumerOffers.toJson(),
+      'customer': instance.costumerOffers.toJson(),
       'errorMessage': instance.errorMessage,
       'success': instance.success,
     };

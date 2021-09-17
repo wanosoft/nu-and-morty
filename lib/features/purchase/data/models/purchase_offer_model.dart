@@ -7,7 +7,7 @@ part 'purchase_offer_model.g.dart';
 
 @JsonSerializable()
 class PurchaseOfferModel extends Equatable {
-  @JsonKey(name: 'costumer')
+  @JsonKey(name: 'customer')
   final CostumerOffersModel costumerOffers;
 
   final String? errorMessage;

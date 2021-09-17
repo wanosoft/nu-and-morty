@@ -7,6 +7,7 @@ import 'package:nu_and_morty/features/home/presentation/cubit/home_cubit.dart';
 
 import '../../../../test_util/entity_factory.dart';
 import '../../../../test_util/mock_factory.mocks.dart';
+import '../../../../test_util/presentation_model_factory.dart';
 
 void main() {
   late MockGetCostumerOffersUseCase useCase;
@@ -65,6 +66,18 @@ void main() {
         verify(useCase(any));
         verifyNoMoreInteractions(useCase);
       },
+    );
+
+    blocTest(
+      'should emit [HomeSuccess] state at succes external update.',
+      build: () => homeCubit,
+      act: (HomeCubit cubit) {
+        final model = createCostumerOffers();
+        cubit.updateData(model);
+      },
+      expect: () => [
+        isA<HomeDataLoaded>(),
+      ],
     );
   });
 }

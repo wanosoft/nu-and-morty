@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nu_and_morty/core/injection/injector.dart';
 import 'package:nu_and_morty/core/presentation/internationalization.dart';
+import 'package:nu_and_morty/features/home/presentation/cubit/home_cubit.dart';
+import 'package:nu_and_morty/features/purchase/domain/use_case/purchase_offer_use_case.dart';
 import 'package:nu_and_morty/features/purchase/presentation/cubit/purchase_cubit.dart';
 
 class PurchaseWidget extends StatelessWidget {
@@ -10,19 +12,24 @@ class PurchaseWidget extends StatelessWidget {
   final String offerId;
 
   @override
-  Widget build(BuildContext context) {
-    final purchaseCubit = context.read<PurchaseCubit>();
-    return BlocProvider<PurchaseCubit>(
-      create: (_) => getIt(),
-      child: BlocBuilder<PurchaseCubit, PurchaseState>(
-        builder: (context, state) {
-          return Column(
+  Widget build(BuildContext context) => BlocProvider(
+        create: (_) => PurchaseCubit(getIt.get<PurchaseOfferUseCase>()),
+        child: BlocConsumer<PurchaseCubit, PurchaseState>(
+          listener: (_, state) {
+            if (state is PurchaseSuccess) {
+              context.read<HomeCubit>().updateData(
+                    state.purchaseOffer.costumerOffers,
+                  );
+            }
+          },
+          builder: (context, state) => Column(
             children: [
               PurchaseButton(
                 backgroudColor: state.buttonColor,
                 title: state.buttonTitle(context),
-                onTap: state.enableButton
-                    ? () => purchaseCubit.onPurchaseOffer(offerId)
+                onPressed: state.enableButton
+                    ? () =>
+                        context.read<PurchaseCubit>().onPurchaseOffer(offerId)
                     : null,
               ),
               const SizedBox(height: 30),
@@ -31,28 +38,30 @@ class PurchaseWidget extends StatelessWidget {
                 style: Theme.of(context).primaryTextTheme.bodyText1,
               ),
             ],
-          );
-        },
-      ),
-    );
-  }
+          ),
+        ),
+      );
 }
 
 class PurchaseButton extends StatelessWidget {
   const PurchaseButton({
     required this.backgroudColor,
     required this.title,
-    required this.onTap,
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
 
   final Color backgroudColor;
   final Widget title;
-  final VoidCallback? onTap;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialButton(
+      child: title,
+      color: backgroudColor,
+      onPressed: onPressed,
+    );
   }
 }
 
@@ -69,7 +78,7 @@ extension UiConverter on PurchaseState {
 
   Widget buttonTitle(BuildContext context) {
     if (this is PurchaseLoading) {
-      return const CircularProgressIndicator(color: Colors.white);
+      return const CircularProgressIndicator(color: Colors.deepPurple);
     }
     late String message;
     if (this is PurchaseError) {

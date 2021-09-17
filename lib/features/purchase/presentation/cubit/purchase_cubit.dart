@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:injectable/injectable.dart';
 import 'package:nu_and_morty/core/domain/failure.dart';
 import 'package:nu_and_morty/features/purchase/domain/use_case/purchase_offer_use_case.dart';
 import 'package:nu_and_morty/features/purchase/presentation/mapper.dart';
@@ -8,7 +7,6 @@ import 'package:nu_and_morty/features/purchase/presentation/models/purchase_offe
 
 part 'purchase_state.dart';
 
-@lazySingleton
 class PurchaseCubit extends Cubit<PurchaseState> {
   PurchaseCubit(this._useCase) : super(PurchaseInitial());
 
@@ -25,4 +23,6 @@ class PurchaseCubit extends Cubit<PurchaseState> {
       emit(PurchaseError(failure));
     }
   }
+
+  void resetState() => emit(PurchaseInitial());
 }
