@@ -2,24 +2,26 @@
 // in nu_and_morty/test/test_util/mock_factory.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i7;
+import 'dart:async' as _i8;
 
 import 'package:graphql/src/cache/cache.dart' as _i3;
 import 'package:graphql/src/core/core.dart' as _i2;
-import 'package:graphql_flutter/graphql_flutter.dart' as _i6;
+import 'package:graphql_flutter/graphql_flutter.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart'
-    as _i8;
-import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart'
     as _i9;
-import 'package:nu_and_morty/core/domain/result.dart' as _i5;
-import 'package:nu_and_morty/core/domain/use_case.dart' as _i12;
+import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart'
+    as _i10;
+import 'package:nu_and_morty/core/domain/result.dart' as _i6;
+import 'package:nu_and_morty/core/domain/use_case.dart' as _i13;
 import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart'
     as _i4;
 import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart'
-    as _i10;
-import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart'
     as _i11;
+import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart'
+    as _i12;
+import 'package:nu_and_morty/features/purchase/data/models/purchase_offer_model.dart'
+    as _i5;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -45,12 +47,15 @@ class _FakeQueryResult_5 extends _i1.Fake implements _i2.QueryResult {}
 class _FakeCostumerOffersModel_6 extends _i1.Fake
     implements _i4.CostumerOffersModel {}
 
-class _FakeResult_7<T> extends _i1.Fake implements _i5.Result<T> {}
+class _FakePurchaseOfferModel_7 extends _i1.Fake
+    implements _i5.PurchaseOfferModel {}
+
+class _FakeResult_8<T> extends _i1.Fake implements _i6.Result<T> {}
 
 /// A class which mocks [GraphQLClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
+class MockGraphQLClient extends _i1.Mock implements _i7.GraphQLClient {
   MockGraphQLClient() {
     _i1.throwOnMissingStub(this);
   }
@@ -87,22 +92,22 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
       (super.noSuchMethod(Invocation.method(#watchMutation, [options]),
           returnValue: _FakeObservableQuery_4()) as _i2.ObservableQuery);
   @override
-  _i7.Future<_i2.QueryResult> query(_i2.QueryOptions? options) =>
+  _i8.Future<_i2.QueryResult> query(_i2.QueryOptions? options) =>
       (super.noSuchMethod(Invocation.method(#query, [options]),
               returnValue: Future<_i2.QueryResult>.value(_FakeQueryResult_5()))
-          as _i7.Future<_i2.QueryResult>);
+          as _i8.Future<_i2.QueryResult>);
   @override
-  _i7.Future<_i2.QueryResult> mutate(_i2.MutationOptions? options) =>
+  _i8.Future<_i2.QueryResult> mutate(_i2.MutationOptions? options) =>
       (super.noSuchMethod(Invocation.method(#mutate, [options]),
               returnValue: Future<_i2.QueryResult>.value(_FakeQueryResult_5()))
-          as _i7.Future<_i2.QueryResult>);
+          as _i8.Future<_i2.QueryResult>);
   @override
-  _i7.Stream<_i2.QueryResult> subscribe(_i2.SubscriptionOptions? options) =>
+  _i8.Stream<_i2.QueryResult> subscribe(_i2.SubscriptionOptions? options) =>
       (super.noSuchMethod(Invocation.method(#subscribe, [options]),
               returnValue: Stream<_i2.QueryResult>.empty())
-          as _i7.Stream<_i2.QueryResult>);
+          as _i8.Stream<_i2.QueryResult>);
   @override
-  _i7.Future<_i2.QueryResult> fetchMore(_i2.FetchMoreOptions? fetchMoreOptions,
+  _i8.Future<_i2.QueryResult> fetchMore(_i2.FetchMoreOptions? fetchMoreOptions,
           {_i2.QueryOptions? originalOptions,
           _i2.QueryResult? previousResult}) =>
       (super.noSuchMethod(
@@ -113,7 +118,7 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
                 #previousResult: previousResult
               }),
               returnValue: Future<_i2.QueryResult>.value(_FakeQueryResult_5()))
-          as _i7.Future<_i2.QueryResult>);
+          as _i8.Future<_i2.QueryResult>);
   @override
   Map<String, dynamic>? readQuery(_i2.Request? request,
           {bool? optimistic = true}) =>
@@ -141,11 +146,11 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
               {#broadcast: broadcast, #data: data}),
           returnValueForMissingStub: null);
   @override
-  _i7.Future<List<_i2.QueryResult?>>? resetStore(
+  _i8.Future<List<_i2.QueryResult?>>? resetStore(
           {bool? refetchQueries = true}) =>
       (super.noSuchMethod(Invocation.method(
               #resetStore, [], {#refetchQueries: refetchQueries}))
-          as _i7.Future<List<_i2.QueryResult?>>?);
+          as _i8.Future<List<_i2.QueryResult?>>?);
   @override
   String toString() => super.toString();
 }
@@ -154,17 +159,23 @@ class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNuMarketplaceRemoteDataSource extends _i1.Mock
-    implements _i8.NuMarketplaceRemoteDataSource {
+    implements _i9.NuMarketplaceRemoteDataSource {
   MockNuMarketplaceRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i7.Future<_i4.CostumerOffersModel> getCostumerOffers() =>
+  _i8.Future<_i4.CostumerOffersModel> getCostumerOffers() =>
       (super.noSuchMethod(Invocation.method(#getCostumerOffers, []),
               returnValue: Future<_i4.CostumerOffersModel>.value(
                   _FakeCostumerOffersModel_6()))
-          as _i7.Future<_i4.CostumerOffersModel>);
+          as _i8.Future<_i4.CostumerOffersModel>);
+  @override
+  _i8.Future<_i5.PurchaseOfferModel> purchaseOffer(String? id) =>
+      (super.noSuchMethod(Invocation.method(#purchaseOffer, [id]),
+              returnValue: Future<_i5.PurchaseOfferModel>.value(
+                  _FakePurchaseOfferModel_7()))
+          as _i8.Future<_i5.PurchaseOfferModel>);
   @override
   String toString() => super.toString();
 }
@@ -173,17 +184,17 @@ class MockNuMarketplaceRemoteDataSource extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNuMarketplaceRepository extends _i1.Mock
-    implements _i9.NuMarketplaceRepository {
+    implements _i10.NuMarketplaceRepository {
   MockNuMarketplaceRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i7.Future<_i5.Result<_i10.CostumerOffersEntity>> getCostumerOffers() =>
+  _i8.Future<_i6.Result<_i11.CostumerOffersEntity>> getCostumerOffers() =>
       (super.noSuchMethod(Invocation.method(#getCostumerOffers, []),
-              returnValue: Future<_i5.Result<_i10.CostumerOffersEntity>>.value(
-                  _FakeResult_7<_i10.CostumerOffersEntity>()))
-          as _i7.Future<_i5.Result<_i10.CostumerOffersEntity>>);
+              returnValue: Future<_i6.Result<_i11.CostumerOffersEntity>>.value(
+                  _FakeResult_8<_i11.CostumerOffersEntity>()))
+          as _i8.Future<_i6.Result<_i11.CostumerOffersEntity>>);
   @override
   String toString() => super.toString();
 }
@@ -192,17 +203,17 @@ class MockNuMarketplaceRepository extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetCostumerOffersUseCase extends _i1.Mock
-    implements _i11.GetCostumerOffersUseCase {
+    implements _i12.GetCostumerOffersUseCase {
   MockGetCostumerOffersUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i7.Future<_i5.Result<_i10.CostumerOffersEntity>> call(_i12.NoParams? _) =>
+  _i8.Future<_i6.Result<_i11.CostumerOffersEntity>> call(_i13.NoParams? _) =>
       (super.noSuchMethod(Invocation.method(#call, [_]),
-              returnValue: Future<_i5.Result<_i10.CostumerOffersEntity>>.value(
-                  _FakeResult_7<_i10.CostumerOffersEntity>()))
-          as _i7.Future<_i5.Result<_i10.CostumerOffersEntity>>);
+              returnValue: Future<_i6.Result<_i11.CostumerOffersEntity>>.value(
+                  _FakeResult_8<_i11.CostumerOffersEntity>()))
+          as _i8.Future<_i6.Result<_i11.CostumerOffersEntity>>);
   @override
   String toString() => super.toString();
 }

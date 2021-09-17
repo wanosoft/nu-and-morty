@@ -13,3 +13,12 @@ class UnknownFailure extends Failure {
   @override
   String get errorMessage => Internationalization.unknownErrorMessage;
 }
+
+class NuMarketplaceFailure extends Failure {
+  final String _message;
+
+  NuMarketplaceFailure(this._message);
+
+  @override
+  String get errorMessage => _message;
+}

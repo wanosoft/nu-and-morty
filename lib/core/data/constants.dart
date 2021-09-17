@@ -28,8 +28,8 @@ class GraphQLQueries {
   ''';
 
   static const purchaseOrder = '''
-  mutation purchase {
-    purchase(offerId: \$ID!) {
+  mutation purchase(\$offerId: ID!) {
+    purchase(offerId: \$offerId) {
       customer {
         id
         name
