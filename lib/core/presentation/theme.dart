@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class NuContaMarketplaceTheme {
   NuContaMarketplaceTheme._();
@@ -9,6 +10,11 @@ class NuContaMarketplaceTheme {
       bodyText1: const TextStyle(
         color: Colors.white,
         fontSize: 16.0,
+      ),
+      button: const TextStyle(
+        color: Colors.white,
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
       ),
       bodyText2: TextStyle(
         color: Colors.grey.shade400,
