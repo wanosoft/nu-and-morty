@@ -20,7 +20,11 @@ class NuMarketplaceRemoteDataSourceImpl
       final result = await _client.query(QueryOptions(
         document: gql(GraphQLQueries.getCostumerOffersQuery),
       ));
-      return CostumerOffersModel.fromJson(result.data?['viewer']);
+      if (result.hasException) {
+        throw const ServerException();
+      } else {
+        return CostumerOffersModel.fromJson(result.data?['viewer']);
+      }
     } on Exception {
       throw const ServerException();
     }

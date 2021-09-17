@@ -21,8 +21,8 @@ void main() {
 
   group('home cubit', () {
     test(
-      'should have initial state as [HomeLoading]',
-      () => expect(homeCubit.state, HomeLoading()),
+      'should have initial state as [HomeInitial]',
+      () => expect(homeCubit.state, HomeInitial()),
     );
 
     blocTest(

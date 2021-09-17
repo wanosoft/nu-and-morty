@@ -11,7 +11,7 @@ part 'home_state.dart';
 
 @injectable
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this._useCase) : super(HomeLoading());
+  HomeCubit(this._useCase) : super(HomeInitial());
   final GetCostumerOffersUseCase _useCase;
 
   Future<void> getCostumerAndOffers() async {
