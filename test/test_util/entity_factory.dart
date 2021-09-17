@@ -1,8 +1,11 @@
+import 'package:nu_and_morty/core/domain/use_case.dart';
 import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart';
 
 const _id = 'id';
 const _monyValue = 1;
 const _name = 'name';
+
+final noParams = NoParams();
 
 ProductEntity createProductEntity({
   String id = _id,

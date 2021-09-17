@@ -2,16 +2,21 @@
 // in nu_and_morty/test/test_util/mock_factory.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i6;
+import 'dart:async' as _i7;
 
 import 'package:graphql/src/cache/cache.dart' as _i3;
 import 'package:graphql/src/core/core.dart' as _i2;
-import 'package:graphql_flutter/graphql_flutter.dart' as _i5;
+import 'package:graphql_flutter/graphql_flutter.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart'
-    as _i7;
+    as _i8;
+import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart'
+    as _i9;
+import 'package:nu_and_morty/core/domain/result.dart' as _i5;
 import 'package:nu_and_morty/features/home/data/models/get_costumer_and_offers_model.dart'
     as _i4;
+import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart'
+    as _i10;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -37,10 +42,12 @@ class _FakeQueryResult_5 extends _i1.Fake implements _i2.QueryResult {}
 class _FakeGetCostumerAndOffersModel_6 extends _i1.Fake
     implements _i4.GetCostumerAndOffersModel {}
 
+class _FakeResult_7<T> extends _i1.Fake implements _i5.Result<T> {}
+
 /// A class which mocks [GraphQLClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGraphQLClient extends _i1.Mock implements _i5.GraphQLClient {
+class MockGraphQLClient extends _i1.Mock implements _i6.GraphQLClient {
   MockGraphQLClient() {
     _i1.throwOnMissingStub(this);
   }
@@ -77,22 +84,22 @@ class MockGraphQLClient extends _i1.Mock implements _i5.GraphQLClient {
       (super.noSuchMethod(Invocation.method(#watchMutation, [options]),
           returnValue: _FakeObservableQuery_4()) as _i2.ObservableQuery);
   @override
-  _i6.Future<_i2.QueryResult> query(_i2.QueryOptions? options) =>
+  _i7.Future<_i2.QueryResult> query(_i2.QueryOptions? options) =>
       (super.noSuchMethod(Invocation.method(#query, [options]),
               returnValue: Future<_i2.QueryResult>.value(_FakeQueryResult_5()))
-          as _i6.Future<_i2.QueryResult>);
+          as _i7.Future<_i2.QueryResult>);
   @override
-  _i6.Future<_i2.QueryResult> mutate(_i2.MutationOptions? options) =>
+  _i7.Future<_i2.QueryResult> mutate(_i2.MutationOptions? options) =>
       (super.noSuchMethod(Invocation.method(#mutate, [options]),
               returnValue: Future<_i2.QueryResult>.value(_FakeQueryResult_5()))
-          as _i6.Future<_i2.QueryResult>);
+          as _i7.Future<_i2.QueryResult>);
   @override
-  _i6.Stream<_i2.QueryResult> subscribe(_i2.SubscriptionOptions? options) =>
+  _i7.Stream<_i2.QueryResult> subscribe(_i2.SubscriptionOptions? options) =>
       (super.noSuchMethod(Invocation.method(#subscribe, [options]),
               returnValue: Stream<_i2.QueryResult>.empty())
-          as _i6.Stream<_i2.QueryResult>);
+          as _i7.Stream<_i2.QueryResult>);
   @override
-  _i6.Future<_i2.QueryResult> fetchMore(_i2.FetchMoreOptions? fetchMoreOptions,
+  _i7.Future<_i2.QueryResult> fetchMore(_i2.FetchMoreOptions? fetchMoreOptions,
           {_i2.QueryOptions? originalOptions,
           _i2.QueryResult? previousResult}) =>
       (super.noSuchMethod(
@@ -103,7 +110,7 @@ class MockGraphQLClient extends _i1.Mock implements _i5.GraphQLClient {
                 #previousResult: previousResult
               }),
               returnValue: Future<_i2.QueryResult>.value(_FakeQueryResult_5()))
-          as _i6.Future<_i2.QueryResult>);
+          as _i7.Future<_i2.QueryResult>);
   @override
   Map<String, dynamic>? readQuery(_i2.Request? request,
           {bool? optimistic = true}) =>
@@ -131,11 +138,11 @@ class MockGraphQLClient extends _i1.Mock implements _i5.GraphQLClient {
               {#broadcast: broadcast, #data: data}),
           returnValueForMissingStub: null);
   @override
-  _i6.Future<List<_i2.QueryResult?>>? resetStore(
+  _i7.Future<List<_i2.QueryResult?>>? resetStore(
           {bool? refetchQueries = true}) =>
       (super.noSuchMethod(Invocation.method(
               #resetStore, [], {#refetchQueries: refetchQueries}))
-          as _i6.Future<List<_i2.QueryResult?>>?);
+          as _i7.Future<List<_i2.QueryResult?>>?);
   @override
   String toString() => super.toString();
 }
@@ -144,17 +151,38 @@ class MockGraphQLClient extends _i1.Mock implements _i5.GraphQLClient {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNuMarketplaceRemoteDataSource extends _i1.Mock
-    implements _i7.NuMarketplaceRemoteDataSource {
+    implements _i8.NuMarketplaceRemoteDataSource {
   MockNuMarketplaceRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i4.GetCostumerAndOffersModel> getCostumerAndOffersModel() =>
+  _i7.Future<_i4.GetCostumerAndOffersModel> getCostumerAndOffersModel() =>
       (super.noSuchMethod(Invocation.method(#getCostumerAndOffersModel, []),
               returnValue: Future<_i4.GetCostumerAndOffersModel>.value(
                   _FakeGetCostumerAndOffersModel_6()))
-          as _i6.Future<_i4.GetCostumerAndOffersModel>);
+          as _i7.Future<_i4.GetCostumerAndOffersModel>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [NuMarketplaceRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNuMarketplaceRepository extends _i1.Mock
+    implements _i9.NuMarketplaceRepository {
+  MockNuMarketplaceRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>
+      getCostumerAndOffers() =>
+          (super.noSuchMethod(Invocation.method(#getCostumerAndOffers, []),
+                  returnValue:
+                      Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>.value(
+                          _FakeResult_7<_i10.GetCostumerAndOffersEntity>()))
+              as _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>);
   @override
   String toString() => super.toString();
 }
