@@ -1,4 +1,4 @@
-const getCostumerAndOffersJson = {
+const costumerOffersJson = {
   'id': 'id',
   'name': 'name',
   'balance': 1,

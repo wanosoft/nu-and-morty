@@ -1,10 +1,10 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nu_and_morty/core/data/constants.dart';
-import 'package:nu_and_morty/features/home/data/models/get_costumer_and_offers_model.dart';
+import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart';
 
 abstract class NuMarketplaceRemoteDataSource {
-  Future<GetCostumerAndOffersModel> getCostumerAndOffersModel();
+  Future<CostumerOffersModel> getCostumerOffers();
 }
 
 @LazySingleton(as: NuMarketplaceRemoteDataSource)
@@ -15,12 +15,12 @@ class NuMarketplaceRemoteDataSourceImpl
   final GraphQLClient _client;
 
   @override
-  Future<GetCostumerAndOffersModel> getCostumerAndOffersModel() async {
+  Future<CostumerOffersModel> getCostumerOffers() async {
     try {
       final result = await _client.query(QueryOptions(
-        document: gql(GraphQLQueries.getCostumerAndOffersQuery),
+        document: gql(GraphQLQueries.getCostumerOffersQuery),
       ));
-      return GetCostumerAndOffersModel.fromJson(result.data?['viewer']);
+      return CostumerOffersModel.fromJson(result.data?['viewer']);
     } on Exception {
       throw const ServerException();
     }

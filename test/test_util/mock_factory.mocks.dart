@@ -14,11 +14,11 @@ import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.
     as _i9;
 import 'package:nu_and_morty/core/domain/result.dart' as _i5;
 import 'package:nu_and_morty/core/domain/use_case.dart' as _i12;
-import 'package:nu_and_morty/features/home/data/models/get_costumer_and_offers_model.dart'
+import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart'
     as _i4;
-import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart'
+import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart'
     as _i10;
-import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_and_offers_use_case.dart'
+import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart'
     as _i11;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -42,8 +42,8 @@ class _FakeObservableQuery_4 extends _i1.Fake implements _i2.ObservableQuery {}
 
 class _FakeQueryResult_5 extends _i1.Fake implements _i2.QueryResult {}
 
-class _FakeGetCostumerAndOffersModel_6 extends _i1.Fake
-    implements _i4.GetCostumerAndOffersModel {}
+class _FakeCostumerOffersModel_6 extends _i1.Fake
+    implements _i4.CostumerOffersModel {}
 
 class _FakeResult_7<T> extends _i1.Fake implements _i5.Result<T> {}
 
@@ -160,11 +160,11 @@ class MockNuMarketplaceRemoteDataSource extends _i1.Mock
   }
 
   @override
-  _i7.Future<_i4.GetCostumerAndOffersModel> getCostumerAndOffersModel() =>
-      (super.noSuchMethod(Invocation.method(#getCostumerAndOffersModel, []),
-              returnValue: Future<_i4.GetCostumerAndOffersModel>.value(
-                  _FakeGetCostumerAndOffersModel_6()))
-          as _i7.Future<_i4.GetCostumerAndOffersModel>);
+  _i7.Future<_i4.CostumerOffersModel> getCostumerOffers() =>
+      (super.noSuchMethod(Invocation.method(#getCostumerOffers, []),
+              returnValue: Future<_i4.CostumerOffersModel>.value(
+                  _FakeCostumerOffersModel_6()))
+          as _i7.Future<_i4.CostumerOffersModel>);
   @override
   String toString() => super.toString();
 }
@@ -179,34 +179,30 @@ class MockNuMarketplaceRepository extends _i1.Mock
   }
 
   @override
-  _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>
-      getCostumerAndOffers() =>
-          (super.noSuchMethod(Invocation.method(#getCostumerAndOffers, []),
-                  returnValue:
-                      Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>.value(
-                          _FakeResult_7<_i10.GetCostumerAndOffersEntity>()))
-              as _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>);
+  _i7.Future<_i5.Result<_i10.CostumerOffersEntity>> getCostumerOffers() =>
+      (super.noSuchMethod(Invocation.method(#getCostumerOffers, []),
+              returnValue: Future<_i5.Result<_i10.CostumerOffersEntity>>.value(
+                  _FakeResult_7<_i10.CostumerOffersEntity>()))
+          as _i7.Future<_i5.Result<_i10.CostumerOffersEntity>>);
   @override
   String toString() => super.toString();
 }
 
-/// A class which mocks [GetCostumerAndOffersUseCase].
+/// A class which mocks [GetCostumerOffersUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetCostumerAndOffersUseCase extends _i1.Mock
-    implements _i11.GetCostumerAndOffersUseCase {
-  MockGetCostumerAndOffersUseCase() {
+class MockGetCostumerOffersUseCase extends _i1.Mock
+    implements _i11.GetCostumerOffersUseCase {
+  MockGetCostumerOffersUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>> call(
-          _i12.NoParams? _) =>
+  _i7.Future<_i5.Result<_i10.CostumerOffersEntity>> call(_i12.NoParams? _) =>
       (super.noSuchMethod(Invocation.method(#call, [_]),
-              returnValue:
-                  Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>.value(
-                      _FakeResult_7<_i10.GetCostumerAndOffersEntity>()))
-          as _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>);
+              returnValue: Future<_i5.Result<_i10.CostumerOffersEntity>>.value(
+                  _FakeResult_7<_i10.CostumerOffersEntity>()))
+          as _i7.Future<_i5.Result<_i10.CostumerOffersEntity>>);
   @override
   String toString() => super.toString();
 }

@@ -1,4 +1,4 @@
-import 'package:nu_and_morty/features/home/presentation/model/get_costumer_and_offers.dart';
+import 'package:nu_and_morty/features/home/presentation/model/costumer_offers.dart';
 
 const _id = 'id';
 const _monyValue = 1;
@@ -28,13 +28,13 @@ Offer createOffer({
       product: product ?? createProduct(),
     );
 
-GetCostumerAndOffers createGetCostumerAndOffers({
+CostumerOffers createCostumerOffers({
   String id = _id,
   String name = _name,
   int balance = _monyValue,
   List<Offer>? offers,
 }) =>
-    GetCostumerAndOffers(
+    CostumerOffers(
       id: id,
       name: name,
       balance: balance,

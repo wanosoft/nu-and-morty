@@ -1,5 +1,5 @@
 import 'package:nu_and_morty/core/domain/use_case.dart';
-import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart';
+import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
 
 const _id = 'id';
 const _monyValue = 1;
@@ -31,13 +31,13 @@ OfferEntity createOfferEntity({
       product: product ?? createProductEntity(),
     );
 
-GetCostumerAndOffersEntity createGetCostumerAndOffersEntity({
+CostumerOffersEntity createCostumerOffersEntity({
   String id = _id,
   String name = _name,
   int balance = _monyValue,
   List<OfferEntity>? offers,
 }) =>
-    GetCostumerAndOffersEntity(
+    CostumerOffersEntity(
       id: id,
       name: name,
       balance: balance,

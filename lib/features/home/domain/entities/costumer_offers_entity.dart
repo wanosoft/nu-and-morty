@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class GetCostumerAndOffers extends Equatable {
+class CostumerOffersEntity extends Equatable {
   final String id;
   final String name;
   final int balance;
-  final List<Offer> offers;
+  final List<OfferEntity> offers;
 
-  const GetCostumerAndOffers({
+  const CostumerOffersEntity({
     required this.id,
     required this.name,
     required this.balance,
@@ -17,12 +17,12 @@ class GetCostumerAndOffers extends Equatable {
   List<Object> get props => [id, name, balance, offers];
 }
 
-class Offer extends Equatable {
+class OfferEntity extends Equatable {
   final String id;
   final int price;
-  final Product product;
+  final ProductEntity product;
 
-  const Offer({
+  const OfferEntity({
     required this.id,
     required this.price,
     required this.product,
@@ -32,13 +32,13 @@ class Offer extends Equatable {
   List<Object> get props => [id, price, product];
 }
 
-class Product extends Equatable {
+class ProductEntity extends Equatable {
   final String id;
   final String name;
   final String description;
   final String imageUrl;
 
-  const Product({
+  const ProductEntity({
     required this.id,
     required this.name,
     required this.description,

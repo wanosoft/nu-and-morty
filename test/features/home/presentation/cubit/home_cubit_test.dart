@@ -9,11 +9,11 @@ import '../../../../test_util/entity_factory.dart';
 import '../../../../test_util/mock_factory.mocks.dart';
 
 void main() {
-  late MockGetCostumerAndOffersUseCase useCase;
+  late MockGetCostumerOffersUseCase useCase;
   late HomeCubit homeCubit;
 
   setUp(() {
-    useCase = MockGetCostumerAndOffersUseCase();
+    useCase = MockGetCostumerOffersUseCase();
     homeCubit = HomeCubit(useCase);
   });
 
@@ -29,7 +29,7 @@ void main() {
       'should emit [HomeLoading], [HomeDataLoaded] state at success result.',
       build: () => homeCubit,
       act: (HomeCubit cubit) {
-        final entity = createGetCostumerAndOffersEntity();
+        final entity = createCostumerOffersEntity();
         when(useCase(any)).thenAnswer(
           (_) async => Result.success(entity),
         );
