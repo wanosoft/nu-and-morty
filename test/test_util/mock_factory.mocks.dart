@@ -13,10 +13,13 @@ import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.
 import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart'
     as _i9;
 import 'package:nu_and_morty/core/domain/result.dart' as _i5;
+import 'package:nu_and_morty/core/domain/use_case.dart' as _i12;
 import 'package:nu_and_morty/features/home/data/models/get_costumer_and_offers_model.dart'
     as _i4;
 import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart'
     as _i10;
+import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_and_offers_use_case.dart'
+    as _i11;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -183,6 +186,27 @@ class MockNuMarketplaceRepository extends _i1.Mock
                       Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>.value(
                           _FakeResult_7<_i10.GetCostumerAndOffersEntity>()))
               as _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [GetCostumerAndOffersUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetCostumerAndOffersUseCase extends _i1.Mock
+    implements _i11.GetCostumerAndOffersUseCase {
+  MockGetCostumerAndOffersUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>> call(
+          _i12.NoParams? _) =>
+      (super.noSuchMethod(Invocation.method(#call, [_]),
+              returnValue:
+                  Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>.value(
+                      _FakeResult_7<_i10.GetCostumerAndOffersEntity>()))
+          as _i7.Future<_i5.Result<_i10.GetCostumerAndOffersEntity>>);
   @override
   String toString() => super.toString();
 }
