@@ -5,4 +5,8 @@ mixin Internationalization {
   static String unknownErrorMessage = 'Oops! something wrong happen :C';
   static String hello(String name) => 'Hello, $name';
   static String description = 'Description:';
+  static String purchase = 'Purchase';
+  static String purchaseAgain = 'Purchase Again!';
+  static String tryAgain = 'Try Again!';
+  static String successDescription = 'Purchase successful!';
 }

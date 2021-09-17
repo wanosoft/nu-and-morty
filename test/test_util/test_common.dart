@@ -71,7 +71,7 @@ void testRepositoryUnknownFailure({
     });
 
 void testServerFailure<T>({
-  String testName = 'should return unknown failure',
+  String testName = 'should return server failure',
   required Function stub,
   required Function call,
   Function? verify,
