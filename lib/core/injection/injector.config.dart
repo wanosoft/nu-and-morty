@@ -9,12 +9,14 @@ import 'package:graphql_flutter/graphql_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../features/home/domain/use_case/get_costumer_offers_use_case.dart'
+    as _i8;
+import '../../features/home/presentation/cubit/home_cubit.dart' as _i9;
+import '../../features/purchase/domain/use_case/purchase_offer_use_case.dart'
     as _i7;
-import '../../features/home/presentation/cubit/home_cubit.dart' as _i8;
 import '../data/remote/nu_marketplace_remote_data_source.dart' as _i4;
 import '../data/repositories/nu_marketplace_data_repository.dart' as _i6;
 import '../domain/repositories/nu_marketplace_repository.dart' as _i5;
-import 'register_module.dart' as _i9; // ignore_for_file: unnecessary_lambdas
+import 'register_module.dart' as _i10; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -28,11 +30,13 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i5.NuMarketplaceRepository>(() =>
       _i6.NuMarketplaceDataRepository(
           get<_i4.NuMarketplaceRemoteDataSource>()));
-  gh.lazySingleton<_i7.GetCostumerOffersUseCase>(
-      () => _i7.GetCostumerOffersUseCase(get<_i5.NuMarketplaceRepository>()));
-  gh.factory<_i8.HomeCubit>(
-      () => _i8.HomeCubit(get<_i7.GetCostumerOffersUseCase>()));
+  gh.lazySingleton<_i7.PurchaseOfferUseCase>(
+      () => _i7.PurchaseOfferUseCase(get<_i5.NuMarketplaceRepository>()));
+  gh.lazySingleton<_i8.GetCostumerOffersUseCase>(
+      () => _i8.GetCostumerOffersUseCase(get<_i5.NuMarketplaceRepository>()));
+  gh.factory<_i9.HomeCubit>(
+      () => _i9.HomeCubit(get<_i8.GetCostumerOffersUseCase>()));
   return get;
 }
 
-class _$RegisterModule extends _i9.RegisterModule {}
+class _$RegisterModule extends _i10.RegisterModule {}

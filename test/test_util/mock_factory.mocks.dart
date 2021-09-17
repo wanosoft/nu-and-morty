@@ -13,15 +13,17 @@ import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.
 import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart'
     as _i10;
 import 'package:nu_and_morty/core/domain/result.dart' as _i6;
-import 'package:nu_and_morty/core/domain/use_case.dart' as _i13;
+import 'package:nu_and_morty/core/domain/use_case.dart' as _i14;
 import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart'
     as _i4;
 import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart'
     as _i11;
 import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart'
-    as _i12;
+    as _i13;
 import 'package:nu_and_morty/features/purchase/data/models/purchase_offer_model.dart'
     as _i5;
+import 'package:nu_and_morty/features/purchase/domain/entities/purchase_offer_entity.dart'
+    as _i12;
 
 // ignore_for_file: avoid_redundant_argument_values
 // ignore_for_file: avoid_setters_without_getters
@@ -171,8 +173,8 @@ class MockNuMarketplaceRemoteDataSource extends _i1.Mock
                   _FakeCostumerOffersModel_6()))
           as _i8.Future<_i4.CostumerOffersModel>);
   @override
-  _i8.Future<_i5.PurchaseOfferModel> purchaseOffer(String? id) =>
-      (super.noSuchMethod(Invocation.method(#purchaseOffer, [id]),
+  _i8.Future<_i5.PurchaseOfferModel> purchaseOffer(String? offerId) =>
+      (super.noSuchMethod(Invocation.method(#purchaseOffer, [offerId]),
               returnValue: Future<_i5.PurchaseOfferModel>.value(
                   _FakePurchaseOfferModel_7()))
           as _i8.Future<_i5.PurchaseOfferModel>);
@@ -196,6 +198,12 @@ class MockNuMarketplaceRepository extends _i1.Mock
                   _FakeResult_8<_i11.CostumerOffersEntity>()))
           as _i8.Future<_i6.Result<_i11.CostumerOffersEntity>>);
   @override
+  _i8.Future<_i6.Result<_i12.PurchaseOfferEntity>> purchaseOffer(String? id) =>
+      (super.noSuchMethod(Invocation.method(#purchaseOffer, [id]),
+              returnValue: Future<_i6.Result<_i12.PurchaseOfferEntity>>.value(
+                  _FakeResult_8<_i12.PurchaseOfferEntity>()))
+          as _i8.Future<_i6.Result<_i12.PurchaseOfferEntity>>);
+  @override
   String toString() => super.toString();
 }
 
@@ -203,13 +211,13 @@ class MockNuMarketplaceRepository extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetCostumerOffersUseCase extends _i1.Mock
-    implements _i12.GetCostumerOffersUseCase {
+    implements _i13.GetCostumerOffersUseCase {
   MockGetCostumerOffersUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<_i6.Result<_i11.CostumerOffersEntity>> call(_i13.NoParams? _) =>
+  _i8.Future<_i6.Result<_i11.CostumerOffersEntity>> call(_i14.NoParams? _) =>
       (super.noSuchMethod(Invocation.method(#call, [_]),
               returnValue: Future<_i6.Result<_i11.CostumerOffersEntity>>.value(
                   _FakeResult_8<_i11.CostumerOffersEntity>()))
