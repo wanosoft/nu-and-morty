@@ -10,7 +10,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart'
     as _i8;
-import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart'
+import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart'
     as _i9;
 import 'package:nu_and_morty/core/domain/result.dart' as _i5;
 import 'package:nu_and_morty/core/domain/use_case.dart' as _i12;

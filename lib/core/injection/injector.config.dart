@@ -12,8 +12,8 @@ import '../../features/home/domain/use_case/get_costumer_and_offers_use_case.dar
     as _i7;
 import '../../features/home/presentation/cubit/home_cubit.dart' as _i8;
 import '../data/remote/nu_marketplace_remote_data_source.dart' as _i4;
-import '../data/repository/nu_marketplace_data_repository.dart' as _i6;
-import '../domain/repository/nu_marketplace_repository.dart' as _i5;
+import '../data/repositories/nu_marketplace_data_repository.dart' as _i6;
+import '../domain/repositories/nu_marketplace_repository.dart' as _i5;
 import 'register_module.dart' as _i9; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars

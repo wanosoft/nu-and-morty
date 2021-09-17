@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:nu_and_morty/core/data/repository/nu_marketplace_data_repository.dart';
-import 'package:nu_and_morty/core/domain/repository/nu_marketplace_repository.dart';
+import 'package:nu_and_morty/core/data/repositories/nu_marketplace_data_repository.dart';
+import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
 import 'package:nu_and_morty/features/home/domain/entities/get_costumer_and_offers_entity.dart';
 
