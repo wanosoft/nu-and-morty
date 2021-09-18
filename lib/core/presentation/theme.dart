@@ -6,6 +6,9 @@ class NuContaMarketplaceTheme {
 
   static ThemeData themeData = ThemeData(
     primaryColor: Colors.deepPurple,
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Colors.deepPurpleAccent,
+    ),
     textTheme: TextTheme(
       bodyText1: const TextStyle(
         color: Colors.white,

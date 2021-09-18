@@ -1,7 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nu_and_morty/core/data/constants.dart';
-import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart';
+import 'package:nu_and_morty/features/get_costumer_data/data/models/costumer_offers_model.dart';
 import 'package:nu_and_morty/features/purchase/data/models/purchase_offer_model.dart';
 
 abstract class NuMarketplaceRemoteDataSource {
