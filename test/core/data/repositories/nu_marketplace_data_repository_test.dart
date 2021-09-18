@@ -5,7 +5,7 @@ import 'package:nu_and_morty/core/data/repositories/nu_marketplace_data_reposito
 import 'package:nu_and_morty/core/domain/failure.dart';
 import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
-import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/entities/costumer_offers_entity.dart';
 import 'package:nu_and_morty/features/purchase/domain/entities/purchase_offer_entity.dart';
 
 import '../../../test_util/entity_factory.dart';

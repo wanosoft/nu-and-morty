@@ -1,4 +1,4 @@
-import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.dart';
+import 'package:nu_and_morty/features/get_costumer_data/presentation/models/costumer_offers.dart';
 import 'package:nu_and_morty/features/purchase/presentation/models/purchase_offer.dart';
 
 const _id = 'id';
@@ -12,7 +12,6 @@ Product createProduct({
   String imageUrl = 'imageUrl',
 }) =>
     Product(
-      id: id,
       name: name,
       description: description,
       imageUrl: imageUrl,
@@ -36,19 +35,18 @@ CostumerOffers createCostumerOffers({
   List<Offer>? offers,
 }) =>
     CostumerOffers(
-      id: id,
       name: name,
       balance: balance,
       offers: offers ?? [createOffer()],
     );
 
 PurchaseOffer createPurchaseOffer({
-  CostumerOffers? costumerOffers,
+  int balance = _monyValue,
   String? errorMessage,
   bool success = true,
 }) =>
     PurchaseOffer(
-      costumerOffers: costumerOffers ?? createCostumerOffers(),
+      balance: balance,
       errorMessage: errorMessage,
       success: success,
     );

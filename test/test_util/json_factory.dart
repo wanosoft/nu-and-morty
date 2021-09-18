@@ -17,7 +17,7 @@ const costumerOffersJson = {
 };
 
 const purchaseOfferJson = {
-  'costumer': costumerOffersJson,
+  'customer': costumerOffersJson,
   'errorMessage': null,
   'success': true,
 };

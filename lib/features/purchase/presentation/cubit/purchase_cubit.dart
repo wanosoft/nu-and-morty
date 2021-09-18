@@ -23,6 +23,4 @@ class PurchaseCubit extends Cubit<PurchaseState> {
       emit(PurchaseError(failure));
     }
   }
-
-  void resetState() => emit(PurchaseInitial());
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nu_and_morty/core/injection/injector.dart';
 import 'package:nu_and_morty/core/presentation/internationalization.dart';
-import 'package:nu_and_morty/features/home/presentation/cubit/home_cubit.dart';
+import 'package:nu_and_morty/features/get_costumer_data/presentation/cubit/home_cubit.dart';
 import 'package:nu_and_morty/features/purchase/domain/use_case/purchase_offer_use_case.dart';
 import 'package:nu_and_morty/features/purchase/presentation/cubit/purchase_cubit.dart';
 
@@ -17,8 +17,8 @@ class PurchaseWidget extends StatelessWidget {
         child: BlocConsumer<PurchaseCubit, PurchaseState>(
           listener: (_, state) {
             if (state is PurchaseSuccess) {
-              context.read<HomeCubit>().updateData(
-                    state.purchaseOffer.costumerOffers,
+              context.read<HomeCubit>().updateBalance(
+                    state.purchaseOffer.balance,
                   );
             }
           },
@@ -78,7 +78,7 @@ extension UiConverter on PurchaseState {
 
   Widget buttonTitle(BuildContext context) {
     if (this is PurchaseLoading) {
-      return const CircularProgressIndicator(color: Colors.deepPurple);
+      return const CircularProgressIndicator();
     }
     late String message;
     if (this is PurchaseError) {

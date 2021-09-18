@@ -14,11 +14,11 @@ import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.
     as _i10;
 import 'package:nu_and_morty/core/domain/result.dart' as _i6;
 import 'package:nu_and_morty/core/domain/use_case.dart' as _i14;
-import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart'
+import 'package:nu_and_morty/features/get_costumer_data/data/models/costumer_offers_model.dart'
     as _i4;
-import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart'
+import 'package:nu_and_morty/features/get_costumer_data/domain/entities/costumer_offers_entity.dart'
     as _i11;
-import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart'
+import 'package:nu_and_morty/features/get_costumer_data/domain/use_case/get_costumer_offers_use_case.dart'
     as _i13;
 import 'package:nu_and_morty/features/purchase/data/models/purchase_offer_model.dart'
     as _i5;

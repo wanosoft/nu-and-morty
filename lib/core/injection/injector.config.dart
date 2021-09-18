@@ -8,9 +8,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:graphql_flutter/graphql_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../features/home/domain/use_case/get_costumer_offers_use_case.dart'
+import '../../features/get_costumer_data/domain/use_case/get_costumer_offers_use_case.dart'
     as _i8;
-import '../../features/home/presentation/cubit/home_cubit.dart' as _i9;
+import '../../features/get_costumer_data/presentation/cubit/home_cubit.dart'
+    as _i9;
 import '../../features/purchase/domain/use_case/purchase_offer_use_case.dart'
     as _i7;
 import '../data/remote/nu_marketplace_remote_data_source.dart' as _i4;

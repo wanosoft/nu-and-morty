@@ -10,14 +10,12 @@ class GraphQLQueries {
   static const getCostumerOffersQuery = '''
   query get_costumer_offers {
     viewer{
-      id
       name
       balance
       offers {
         id
         price
         product {
-          id
           name
           description
           image
@@ -31,19 +29,7 @@ class GraphQLQueries {
   mutation purchase(\$offerId: ID!) {
     purchase(offerId: \$offerId) {
       customer {
-        id
-        name
         balance
-        offers {
-          id
-          price
-          product {
-            id
-            name
-            description
-            image
-          }
-        }
       }
       errorMessage
       success
