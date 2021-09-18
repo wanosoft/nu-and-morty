@@ -16,6 +16,7 @@ class NuAppBar extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         collapsedHeight: 100.0,
         toolbarHeight: 100.0,
+        centerTitle: true,
         title: Column(
           children: [
             Text(

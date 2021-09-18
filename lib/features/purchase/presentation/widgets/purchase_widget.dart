@@ -78,7 +78,7 @@ extension UiConverter on PurchaseState {
 
   Widget buttonTitle(BuildContext context) {
     if (this is PurchaseLoading) {
-      return const CircularProgressIndicator(color: Colors.deepPurple);
+      return const CircularProgressIndicator();
     }
     late String message;
     if (this is PurchaseError) {

@@ -3,10 +3,7 @@ import 'package:nu_and_morty/features/home/presentation/models/costumer_offers.d
 import 'package:nu_and_morty/features/home/presentation/pages/offer_detail_view.dart';
 
 class OfferTile extends StatelessWidget {
-  const OfferTile({
-    required this.offer,
-    Key? key,
-  }) : super(key: key);
+  const OfferTile({required this.offer, Key? key}) : super(key: key);
 
   final Offer offer;
 
