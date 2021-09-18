@@ -1,5 +1,5 @@
-import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart';
-import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
+import 'package:nu_and_morty/features/get_costumer_data/data/models/costumer_offers_model.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/entities/costumer_offers_entity.dart';
 
 CostumerOffersEntity costumerOffersEntityMapper(
   CostumerOffersModel model,

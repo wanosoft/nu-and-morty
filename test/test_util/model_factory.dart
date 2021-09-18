@@ -1,4 +1,4 @@
-import 'package:nu_and_morty/features/home/data/models/costumer_offers_model.dart';
+import 'package:nu_and_morty/features/get_costumer_data/data/models/costumer_offers_model.dart';
 import 'package:nu_and_morty/features/purchase/data/models/purchase_offer_model.dart';
 
 const _id = 'id';

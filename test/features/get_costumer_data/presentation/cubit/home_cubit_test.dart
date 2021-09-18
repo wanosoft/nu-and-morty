@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:nu_and_morty/core/domain/failure.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
-import 'package:nu_and_morty/features/home/presentation/cubit/home_cubit.dart';
+import 'package:nu_and_morty/features/get_costumer_data/presentation/cubit/home_cubit.dart';
 
 import '../../../../test_util/entity_factory.dart';
 import '../../../../test_util/mock_factory.mocks.dart';

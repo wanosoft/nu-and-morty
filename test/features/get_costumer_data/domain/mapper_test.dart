@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nu_and_morty/features/home/domain/mapper.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/mapper.dart';
 
 import '../../../test_util/entity_factory.dart';
 import '../../../test_util/model_factory.dart';

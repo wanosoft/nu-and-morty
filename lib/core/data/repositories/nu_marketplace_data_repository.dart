@@ -3,9 +3,9 @@ import 'package:injectable/injectable.dart';
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart';
 import 'package:nu_and_morty/core/domain/failure.dart';
 import 'package:nu_and_morty/core/domain/repositories/nu_marketplace_repository.dart';
-import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
-import 'package:nu_and_morty/features/home/domain/mapper.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/entities/costumer_offers_entity.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/mapper.dart';
 import 'package:nu_and_morty/features/purchase/domain/entities/purchase_offer_entity.dart';
 import 'package:nu_and_morty/features/purchase/domain/mapper.dart';
 

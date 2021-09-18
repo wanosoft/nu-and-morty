@@ -2,8 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:nu_and_morty/core/domain/result.dart';
 import 'package:nu_and_morty/core/domain/use_case.dart';
-import 'package:nu_and_morty/features/home/domain/entities/costumer_offers_entity.dart';
-import 'package:nu_and_morty/features/home/domain/use_case/get_costumer_offers_use_case.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/entities/costumer_offers_entity.dart';
+import 'package:nu_and_morty/features/get_costumer_data/domain/use_case/get_costumer_offers_use_case.dart';
+
 import '../../../../test_util/entity_factory.dart';
 import '../../../../test_util/mock_factory.mocks.dart';
 import '../../../../test_util/test_common.dart';
