@@ -12,7 +12,6 @@ ProductModel createProductModel({
   String imageUrl = 'imageUrl',
 }) =>
     ProductModel(
-      id: id,
       name: name,
       description: description,
       imageUrl: imageUrl,
@@ -36,19 +35,18 @@ CostumerOffersModel createCostumerOffersModel({
   List<OfferModel>? offers,
 }) =>
     CostumerOffersModel(
-      id: id,
       name: name,
       balance: balance,
       offers: offers ?? [createOfferModel()],
     );
 
 PurchaseOfferModel createPurchaseOfferModel({
-  CostumerOffersModel? costumerOffersModel,
+  int balance = _monyValue,
   String? errorMessage,
   bool success = true,
 }) =>
     PurchaseOfferModel(
-      costumerOffers: costumerOffersModel ?? createCostumerOffersModel(),
+      balance: balance,
       errorMessage: errorMessage,
       success: success,
     );

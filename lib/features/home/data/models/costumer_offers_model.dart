@@ -5,13 +5,11 @@ part 'costumer_offers_model.g.dart';
 
 @JsonSerializable()
 class CostumerOffersModel extends Equatable {
-  final String id;
   final String name;
   final int balance;
   final List<OfferModel> offers;
 
   const CostumerOffersModel({
-    required this.id,
     required this.name,
     required this.balance,
     required this.offers,
@@ -23,7 +21,7 @@ class CostumerOffersModel extends Equatable {
   Map<String, dynamic> toJson() => _$CostumerOffersModelToJson(this);
 
   @override
-  List<Object> get props => [id, name, balance, offers];
+  List<Object> get props => [name, balance, offers];
 }
 
 @JsonSerializable()
@@ -49,8 +47,6 @@ class OfferModel extends Equatable {
 
 @JsonSerializable()
 class ProductModel extends Equatable {
-  final String id;
-
   final String name;
 
   final String description;
@@ -59,7 +55,6 @@ class ProductModel extends Equatable {
   final String imageUrl;
 
   const ProductModel({
-    required this.id,
     required this.name,
     required this.description,
     required this.imageUrl,
@@ -71,5 +66,5 @@ class ProductModel extends Equatable {
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 
   @override
-  List<Object> get props => [id, name, description, imageUrl];
+  List<Object> get props => [name, description, imageUrl];
 }

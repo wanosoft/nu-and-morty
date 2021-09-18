@@ -27,6 +27,10 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  void updateData(CostumerOffers updatedData) =>
-      emit(HomeDataLoaded(updatedData));
+  void updateBalance(int balance) {
+    final oldState = state as HomeDataLoaded;
+    final updatedCostumerOffers =
+        oldState.costumerOffers.updateBalance(balance);
+    emit(HomeDataLoaded(updatedCostumerOffers));
+  }
 }

@@ -5,7 +5,6 @@ CostumerOffers costumerOffersMapper(
   CostumerOffersEntity entity,
 ) =>
     CostumerOffers(
-      id: entity.id,
       name: entity.name,
       balance: entity.balance,
       offers: entity.offers.map(offerMapper).toList(),
@@ -18,7 +17,6 @@ Offer offerMapper(OfferEntity entity) => Offer(
     );
 
 Product productMapper(ProductEntity entity) => Product(
-      id: entity.id,
       name: entity.name,
       description: entity.description,
       imageUrl: entity.imageUrl,

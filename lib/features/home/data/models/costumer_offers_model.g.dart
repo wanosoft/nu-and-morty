@@ -8,7 +8,6 @@ part of 'costumer_offers_model.dart';
 
 CostumerOffersModel _$CostumerOffersModelFromJson(Map<String, dynamic> json) =>
     CostumerOffersModel(
-      id: json['id'] as String,
       name: json['name'] as String,
       balance: json['balance'] as int,
       offers: (json['offers'] as List<dynamic>)
@@ -19,7 +18,6 @@ CostumerOffersModel _$CostumerOffersModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$CostumerOffersModelToJson(
         CostumerOffersModel instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'name': instance.name,
       'balance': instance.balance,
       'offers': instance.offers.map((e) => e.toJson()).toList(),
@@ -39,7 +37,6 @@ Map<String, dynamic> _$OfferModelToJson(OfferModel instance) =>
     };
 
 ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
-      id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
       imageUrl: json['image'] as String,
@@ -47,7 +44,6 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
 
 Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'image': instance.imageUrl,

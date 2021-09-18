@@ -7,6 +7,7 @@ import 'package:nu_and_morty/features/home/presentation/cubit/home_cubit.dart';
 
 import '../../../../test_util/entity_factory.dart';
 import '../../../../test_util/mock_factory.mocks.dart';
+import '../../../../test_util/params_factory.dart';
 import '../../../../test_util/presentation_model_factory.dart';
 
 void main() {
@@ -68,12 +69,16 @@ void main() {
       },
     );
 
-    blocTest(
-      'should emit [HomeSuccess] state at succes external update.',
+    blocTest<HomeCubit, HomeState>(
+      'should emit [HomeDataLoaded] state at succes external update.',
       build: () => homeCubit,
-      act: (HomeCubit cubit) {
+      setUp: () {},
+      seed: () {
         final model = createCostumerOffers();
-        cubit.updateData(model);
+        return HomeDataLoaded(model);
+      },
+      act: (cubit) {
+        cubit.updateBalance(balance + 1);
       },
       expect: () => [
         isA<HomeDataLoaded>(),

@@ -17,8 +17,8 @@ class PurchaseWidget extends StatelessWidget {
         child: BlocConsumer<PurchaseCubit, PurchaseState>(
           listener: (_, state) {
             if (state is PurchaseSuccess) {
-              context.read<HomeCubit>().updateData(
-                    state.purchaseOffer.costumerOffers,
+              context.read<HomeCubit>().updateBalance(
+                    state.purchaseOffer.balance,
                   );
             }
           },

@@ -9,13 +9,11 @@ const _name = 'name';
 final noParams = NoParams();
 
 ProductEntity createProductEntity({
-  String id = _id,
   String name = _name,
   String description = 'description',
   String imageUrl = 'imageUrl',
 }) =>
     ProductEntity(
-      id: id,
       name: name,
       description: description,
       imageUrl: imageUrl,
@@ -39,19 +37,18 @@ CostumerOffersEntity createCostumerOffersEntity({
   List<OfferEntity>? offers,
 }) =>
     CostumerOffersEntity(
-      id: id,
       name: name,
       balance: balance,
       offers: offers ?? [createOfferEntity()],
     );
 
 PurchaseOfferEntity createPurchaseOfferEntity({
-  CostumerOffersEntity? costumerOffersEntity,
+  int balance = _monyValue,
   String? errorMessage,
   bool success = true,
 }) =>
     PurchaseOfferEntity(
-      costumerOffers: costumerOffersEntity ?? createCostumerOffersEntity(),
+      balance: balance,
       errorMessage: errorMessage,
       success: success,
     );
