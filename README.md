@@ -1,16 +1,22 @@
-# nu_and_morty
+# NuConta Marketplace
 
-A new Flutter project.
+_nu_and_morty_
 
-## Getting Started
+The project uses `flutter v2.5.0` please make sure you are running this flutter version and run:
 
-This project is a starting point for a Flutter application.
+```
+flutter pub get && flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Solution
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This app was developed following [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) pattern, and use [cubit](https://pub.dev/packages/flutter_bloc) as state management, for branch management I use [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I found two major features:
+
+1. Fetch costumer with its offers.
+2. Purchase items.
+
+I hope the code is self-explanatory. If you have any questions, suggestions or feedback, please reach me out after the evaluation.
+
+Happy Coding!
