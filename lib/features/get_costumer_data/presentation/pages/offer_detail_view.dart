@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nu_and_morty/core/presentation/internationalization.dart';
 import 'package:nu_and_morty/features/get_costumer_data/presentation/models/costumer_offers.dart';
 import 'package:nu_and_morty/features/purchase/presentation/widgets/purchase_widget.dart';

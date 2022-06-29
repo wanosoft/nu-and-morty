@@ -25,7 +25,7 @@ class NuAppBar extends StatelessWidget {
             ),
             Text(
               // TODO: Format money
-              '\$$balance',
+              '\$ $balance',
               style: Theme.of(context).textTheme.headline1,
             )
           ],
