@@ -1,6 +1,5 @@
 part of 'home_cubit.dart';
 
-// TODO: use freezed to generate factory for each state.
 abstract class HomeState extends Equatable {
   const HomeState();
 
