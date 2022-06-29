@@ -2,7 +2,7 @@
 
 _nu_and_morty_
 
-The project uses `flutter v2.5.0` please make sure you are running this flutter version and run:
+The project uses `flutter v3.0.1` please make sure you are running this flutter version and run:
 
 ```
 flutter pub get && flutter run
