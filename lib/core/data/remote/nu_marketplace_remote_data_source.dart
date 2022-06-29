@@ -19,9 +19,12 @@ class NuMarketplaceRemoteDataSourceImpl
   @override
   Future<CostumerOffersModel> getCostumerOffers() async {
     try {
-      final result = await _client.query(QueryOptions(
-        document: gql(GraphQLQueries.getCostumerOffersQuery),
-      ));
+      final result = await _client
+          .query(QueryOptions(
+            document: gql(GraphQLQueries.getCostumerOffersQuery),
+          ))
+          .timeout(const Duration(seconds: 1));
+
       if (result.hasException) {
         throw const ServerException();
       } else {
@@ -35,12 +38,14 @@ class NuMarketplaceRemoteDataSourceImpl
   @override
   Future<PurchaseOfferModel> purchaseOffer(String offerId) async {
     try {
-      final result = await _client.query(
-        QueryOptions(
-          document: gql(GraphQLQueries.purchaseOrder),
-          variables: {'offerId': offerId},
-        ),
-      );
+      final result = await _client
+          .query(
+            QueryOptions(
+              document: gql(GraphQLQueries.purchaseOrder),
+              variables: {'offerId': offerId},
+            ),
+          )
+          .timeout(const Duration(seconds: 1));
       if (result.hasException) {
         throw const ServerException();
       } else {
