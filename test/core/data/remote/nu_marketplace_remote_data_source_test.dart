@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mockito/mockito.dart';
+import 'package:nu_and_morty/core/data/constants.dart';
 import 'package:nu_and_morty/core/data/remote/nu_marketplace_remote_data_source.dart';
 
 import '../../../test_util/json_factory.dart';
@@ -19,9 +20,15 @@ void main() {
   });
 
   group('nu marketplace remote data source', () {
-    void stubQuery(Map<String, dynamic> data) =>
+    void stubQuery({
+      required Map<String, dynamic> data,
+      required String documentQuery,
+    }) =>
         when(client.query(any)).thenAnswer(
           (_) async => QueryResult(
+            options: QueryOptions(
+              document: gql(documentQuery),
+            ),
             data: data,
             source: QueryResultSource.network,
           ),
@@ -34,9 +41,12 @@ void main() {
 
     group('get costumer offers', () {
       test('should success with expected model', () async {
-        stubQuery({
-          'viewer': costumerOffersJson,
-        });
+        stubQuery(
+          documentQuery: GraphQLQueries.getCostumerOffersQuery,
+          data: {
+            'viewer': costumerOffersJson,
+          },
+        );
         final expectedModel = createCostumerOffersModel();
 
         final result = await marketplaceRemoteDataSource.getCostumerOffers();
@@ -54,7 +64,10 @@ void main() {
 
     group('purchase offer', () {
       test('should success with expected model', () async {
-        stubQuery({'purchase': purchaseOfferJson});
+        stubQuery(
+          documentQuery: GraphQLQueries.purchaseOrder,
+          data: {'purchase': purchaseOfferJson},
+        );
         final expectedModel = createPurchaseOfferModel();
 
         final result = await marketplaceRemoteDataSource.purchaseOffer(offerId);
@@ -76,7 +89,10 @@ void main() {
           );
           json.update('errorMessage', (_) => message);
           json.update('success', (_) => false);
-          stubQuery({'purchase': json});
+          stubQuery(
+            documentQuery: GraphQLQueries.getCostumerOffersQuery,
+            data: {'purchase': json},
+          );
 
           final call = marketplaceRemoteDataSource.purchaseOffer;
 
